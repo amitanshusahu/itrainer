@@ -1,0 +1,129 @@
+@import url(./common.css);
+
+body{
+  overflow-x: hidden;
+}
+main{
+	padding:var(--max-space);
+	background-color: white;
+	display: flex;
+	flex-direction: column;
+	gap: var(--max-space);
+	max-width: 900px;
+	margin: auto;
+}
+nav{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+nav button{
+	background-color: transparent;
+	height: 40px;
+	border: none;
+}
+nav button img {
+	height: inherit;
+}
+nav .cloud-btn{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: var(--min-space);
+}
+nav .cloud-btn img{
+	height: 20px;
+}
+.badge-wrapper{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: var(--min-space);
+	margin: var(--min-space) 0;
+}
+.badge-wrapper .badge{
+	height: 100px;
+	aspect-ratio: 1/1;
+	overflow: hidden;
+}
+.badge-wrapper .badge img{
+	height: inherit;
+}
+
+.ui-box{
+	padding: var(--max-space);
+	border-radius: 1em;
+	background-color: white;
+	box-shadow: 0 0px 20px rgba(0, 0, 250, 0.1);
+}
+.ui-box .toggle{
+	width: 100%;
+}
+.scedule h1, h2{
+	text-transform: capitalize;
+}
+.scedule,
+.scedule .target{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: var(--max-space);
+}
+.scedule .target{gap: var(--max-space);}
+.scedule .target{
+	width: 100%;
+	padding-top: 15px;
+	overflow: hidden;
+}
+.scedule .target .list{
+	width: 100%;
+}
+.scedule .target .list li{
+	border-radius: 10px;
+/*	background-color: white;*/
+	background-color: rgb(245, 245, 250);
+	padding: 10px;
+}
+.scedule .target .list li:nth-child(odd){
+	background-color: rgb(225, 225, 250);
+}
+.scedule .target .list .weights{
+	display: flex;
+	gap: var(--min-space);
+	width: 50%;
+	overflow: hidden;
+	justify-content: flex-end;
+}
+.scedule .target .list .weights input{
+	aspect-ratio: 1/1;
+	width: 30px;
+	padding: 5px;
+}
+.scedule .daily-inputs{
+	display: flex;
+	gap: var(--max-space);
+	margin-top: var(--max-space);
+}
+.scedule .daily-inputs img{
+	height: 60px;
+}
+.scedule .daily-inputs input{
+	width: 60px;
+}
+.charts{
+	display: grid;
+	grid-template-columns: 1fr 1.5fr;
+	gap: var(--max-space);
+}
+.charts .select-wrapper{
+	justify-content: center;
+	align-items: center;
+}
+
+@media only screen and (max-width: 400px) {
+	.charts{
+		display: flex;
+    flex-direction: column-reverse;
+	}
+}

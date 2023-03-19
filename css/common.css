@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+:root{
+	--min-space: 15px;
+	--max-space: 30px;
+}
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+/*	border: 1px solid red;*/
+}
+h1,h2,h3,h4,h5,h6{
+	font-family: 'Oswald', sans-serif;
+}
+h1{ font-size: 25px }
+h2{ font-size: 22px }
+h3{ font-size: 18px }
+ul li{
+	list-style: none;		
+}
+p,input,button,ul,li,b,i,span{
+	font-family: 'DM Sans', sans-serif;
+}
+input{
+	padding: 10px;
+	outline: 1px solid lightblue;
+	border-radius: 10px;
+	border: none;
+}
+input:focus{
+	outline: 2px solid black;
+}
+.btn{
+	border: none;
+	padding: 10px 20px;
+	border-radius: 1em;
+	font-weight: bold;
+
+}
+.btn-primary{
+	background-color: blue;
+	color: white;
+}
+.btn:active{
+	opacity: 0.5;
+}
+/*-- util classes --- */
+.flex-between{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.grey{
+	color: grey;
+}
+.flex-col{
+	display: flex;
+	flex-direction: column;
+	gap: var(--min-space);
+}
