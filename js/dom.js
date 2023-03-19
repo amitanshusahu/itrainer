@@ -33,7 +33,8 @@ function saveData(ele) {
   let day = new Date;
   let weightInput = document.querySelector("#weight input");
   let timeInput = document.querySelector("#time input");
-  let weekNo = day.getDay();
+  // let weekNo = day.getDay();
+  let weekNo = 1;
   let weight = Number(weightInput.value);
   let time = Number(timeInput.value);
 
@@ -193,7 +194,7 @@ function createWeeklyCharts(labels, weightArr, timeArr) {
   const timeData= {
     labels,
     datasets: [{
-      label: 'Body Weight',
+      label: 'Time Spent',
       data: timeArr,
       borderWidth: 1,
     }]

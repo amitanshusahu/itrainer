@@ -116,14 +116,16 @@ nav .cloud-btn img{
 	grid-template-columns: 1fr 1.5fr;
 	gap: var(--max-space);
 }
+.charts #attendence{
+  max-width: 100px;
+}
 .charts .select-wrapper{
 	justify-content: center;
 	align-items: center;
 }
 
 @media only screen and (max-width: 400px) {
-	.charts{
-		display: flex;
-    flex-direction: column-reverse;
-	}
+  .charts #attendence{
+    max-width: fit-content;
+  }
 }

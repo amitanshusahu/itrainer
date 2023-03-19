@@ -75,20 +75,21 @@ let saved = localStorage.getItem("saved");
 
 const preOnline = localStorage.getItem("preOnline");
 let preWeek = getWeekName(getWeekNo() - 1);
-const today = getTodaysDay();
+// const today = getTodaysDay();
+const today = "monday";
+  const todaysExObj = scedule[today];
 
 
 
 /// ------------- LOGIC --------------
 
-if(today == "sunday"){
-  todaysExObj = {
-    rest: ["take enough rest"]
-  }
-}
-else{
-  const todaysExObj = scedule[today];
-}
+// if(today == "sunday"){
+//   todaysExObj = {
+//     rest: ["take enough rest"]
+//   }
+// }
+// else{
+// }
 
 if(preOnline == preWeek){
 	localStorage.setItem("saved", "false");
