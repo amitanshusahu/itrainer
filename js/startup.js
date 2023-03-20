@@ -4,20 +4,20 @@ const scedule = {
 		back: 	[["barbel rowing (straight)", "barbel rowing (reverse)"],
 				["pull down (wide front)", "pull down (wide back)"],
 				"cable rowing (V hold)",
-				"pull over ( concentration )"],
+				"pull over (concentration)"],
 		bicep: 	[["ficher (dumbell)", "ficher (machine)"],
 				["dumbell curl (stand)", "dumbell curl (bench)", "dumbell curl (arm blaster)"],
-				["dumbell hammer (stand)", "dumbell hammer (bend)", "dumbell hammer (arm blaster)"],
+				["dumbell hammer (stand)", "dumbell hammer (bench)", "dumbell hammer (arm blaster)"],
 				"bicep (concentration)"],
 
 	},
 
 	tuesday: {
 		chest: 	[["barbell bench press (incline)", "barbell bench press (flat)", "barbell bench press (decline)"],
-				["dumbell bench press (flat)", "dumbell bench press (incline flat)"],
+				["dumbell bench press (flat)", "dumbell bench press (incline)","dumbell bench press (flat)"],
 				"butterfly fly machine",
 				["cable fly (incline)", "cable fly (decline)"]],
-		tricep: ["tricep cable",
+		tricep: [["tricep cable (straight rod forward)", "tricep	cable (stright rod backward)", "tricep	cable (V bar)","tricep	cable (rope)","tricep	cable (black v-bar)"],
 				["double arm extention (barbell)", "double arm extention (dumbell)"],
 				"dumbell skull crusher",
 				"tricep dips (concentration)"],
@@ -27,19 +27,19 @@ const scedule = {
 		shoulder: ["shoulder press machine",
 				  ["shoulder press (dumbell)", "shoulder press (barbell back)", "shoulder presss (barbell front)"],
 				  "arnold shoulder",
-				  ["front raise (dumbe ll)", "front raise (barbell)"],
+				  ["front raise (dumbell)", "front raise (barbell)"],
 				  "side raise (dumbell)",
-				  "bend fly (dumbell)",
-				  ["rowing (dumbell)", "rowing (barbell)"]],
-		trap: ["shurgs (dumbell)", "shurgs (barbell)"],
+				  "bend fly (dumbell)"],
+		trap: [["rowing (dumbell)", "rowing (barbell)", "rowing (cable)"],
+			["shurgs (dumbell)", "shurgs (barbell)"]],
 	},
 
 	thursday: {
 		back: [["smith rowing", "dumbell rowing"],
 			   ["pull down (wide hold)", "pull down (mid hold)"],
-			   ["bar rowing (close)", "bar rowing (wide)"],
-			   ["cable rowing (wide hold)", "cable rowing (midhold)"]],
-		bicep: [["bicep cable rowing (stright bar)"],
+			   ["t-bar rowing (close)", "t-bar rowing (wide)"],
+			   ["cable rowing (wide hold)", "cable rowing (mid hold)"]],
+		bicep: [["bicep cable rowing (stright bar)", "bicep cable rowing (curve bar)"],
 				"box hammer",
 				["straight rod curl", "box curl", "snake rod curl"],
 				"bicep (concentration)"],
@@ -48,18 +48,21 @@ const scedule = {
 	friday: {
 		chest: [["barbell bench press (decline)", "barbell bench press (decline)", "barbell bench press (incline)"],
 			["dumbell bench press (flat)", "dumbell bench press (flat)", "dumbell bench press (incline)"],
+			["dumbell fly (incline)", "dumbell fly (decline)"],
 			"dumbell fly (flat)",
-			"close grip (concentration)",
-			["dumbell fly (incline)", "dumbell fly (decline)"]],
-		tricep: ["tricep cable", "single arm extention", "barbell skull crusher"]
+			"close grip (concentration)"],
+		tricep: [["tricep cable (black v-bar)", "tricep	cable (rope)", "tricep	cable (stright rod forward)","tricep	cable (V bar)","tricep	cable (straight rod backward)"],
+		 "single arm extention", "barbell skull crusher"]
 	},
 
 	saturday: {
-		leg: ["langues", "sumo lift", "leg press",
-			["squad (barbell)", "squad (dumbell)"],
+		leg: ["langues",
+		 ["sumo dead lift (dumbell)","sumo dead lift (barbell)"], "leg press",
+			["squat (barbell)", "squad (dumbell)"],
 			["leg extention (back)", "leg extention (front)"],
-			"waist",
-			"calf muscle (smith)"]
+			"calf muscle (smith)",
+			"waist"],
+		abs: ["paraller (stright)", "parallel bar (bend)", "parallel bar (hold)","bench (leg)", "bench (body)", "oblique"]
 	},
 };
 
@@ -68,28 +71,26 @@ const scedule = {
 
 /// ---- GLOBAL VARIABLES / CONSTANTS---- 
 
-let dailyData = [];
-let stats = JSON.parse(localStorage.getItem('dailyData'));
 let todaysExSchedule = [];
-let saved = localStorage.getItem("saved");
+
 
 const preOnline = localStorage.getItem("preOnline");
 let preWeek = getWeekName(getWeekNo() - 1);
-// const today = getTodaysDay();
-const today = "monday";
-  const todaysExObj = scedule[today];
+const today = getTodaysDay();
+let todaysExObj;
 
 
 
 /// ------------- LOGIC --------------
 
-// if(today == "sunday"){
-//   todaysExObj = {
-//     rest: ["take enough rest"]
-//   }
-// }
-// else{
-// }
+if(today === "sunday"){
+  todaysExObj = {
+    rest: ["take enough rest"]
+  }
+}
+else{
+  todaysExObj = scedule[today];
+}
 
 if(preOnline == preWeek){
 	localStorage.setItem("saved", "false");
@@ -103,6 +104,9 @@ if(preOnline !== today) {
 		"todaysExSchedule",
 	 	JSON.stringify(todaysExSchedule)
 	 	);
+
+	localStorage.setItem('updateTarget1', 'false');
+	localStorage.setItem('updateTarget2', 'false');
 
 }
 else {

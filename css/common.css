@@ -3,6 +3,8 @@
 :root{
 	--min-space: 15px;
 	--max-space: 30px;
+	--light: white;
+	--dark: black;
 }
 
 *{
@@ -11,6 +13,45 @@
 	box-sizing: border-box;
 /*	border: 1px solid red;*/
 }
+body{
+	widows: 100%;
+	height: fit-content;
+  	overflow-x: hidden;
+  	user-select: none;
+}
+main{
+	padding:var(--max-space);
+	background-color: white;
+	display: flex;
+	flex-direction: column;
+	gap: var(--max-space);
+	max-width: 900px;
+	margin: auto;
+}
+nav{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+nav button{
+	background-color: transparent;
+	height: 40px;
+	border: none;
+}
+nav button img {
+	height: inherit;
+}
+nav .cloud-btn{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: var(--min-space);
+}
+nav .cloud-btn img{
+	height: 20px;
+}
+
+/*---------- skeleton styles ------------*/
 h1,h2,h3,h4,h5,h6{
 	font-family: 'Oswald', sans-serif;
 }
@@ -23,15 +64,33 @@ ul li{
 p,input,button,ul,li,b,i,span{
 	font-family: 'DM Sans', sans-serif;
 }
-input{
+input[type="name"], input[type="number"]{
 	padding: 10px;
 	outline: 1px solid lightblue;
 	border-radius: 10px;
 	border: none;
 }
-input:focus{
+input[type="name"]:focus, input[type="number"]:focus{
 	outline: 2px solid black;
 }
+input[type="checkbox"]{
+	scale: 1.5;
+}
+input:checked{
+	animation: vibrate 0.2s ease;
+}
+@keyframes vibrate{
+	0%{ transform: rotateZ(45deg); }
+	20%{ transform: rotateZ(0deg); }
+	40%{ transform: rotateZ(-45deg); }
+	60%{ transform: rotateZ(45deg); }
+	100%{ transform: rotateZ(0deg); }
+}
+button, img, a{
+	-webkit-tap-highlight-color: transparent;
+}
+
+/*-------------- utility classes -------------*/
 .btn{
 	border: none;
 	padding: 10px 20px;
@@ -46,11 +105,12 @@ input:focus{
 .btn:active{
 	opacity: 0.5;
 }
-/*-- util classes --- */
+
 .flex-between{
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	gap: var(--max-space);
 }
 .grey{
 	color: grey;
@@ -59,4 +119,26 @@ input:focus{
 	display: flex;
 	flex-direction: column;
 	gap: var(--min-space);
+}
+.ui-box{
+	padding: var(--max-space);
+	border-radius: 1em;
+	background-color: white;
+	box-shadow: 0 0px 20px rgba(0, 0, 250, 0.1);
+}
+.modal{
+	scale: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+  position: fixed; /* Stay in place */
+  z-index: 1000; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: hidden; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }

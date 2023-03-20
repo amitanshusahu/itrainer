@@ -3,19 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="white"> 
-  <title>gym project</title>
+  <meta name="theme-color" content="white">
+  <meta name="color-scheme" content="light">
+  <title>Workout360</title>
   <script src="./js/script.js"></script>
   <link rel="stylesheet" href="./css/style.css">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="apple-touch-icon" href="./img/logo192.png">
   <script src="./js/startup.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="./js/chart.js"></script>
 </head>
 <body>
   <main>
+    <div class="modal">
+      <menu class="ui-box flex-col">
+          <a href="./html/stats.html"> tracker</a>
+        <button class="btn" onclick="localStorage.clear()">clear local</button>
+      </menu>
+    </div>
     <nav>
-      <button onclick="alert('feature still in development')">
+      <button onclick="openMenu()">
         <img src="./img/menu.png" alt="">
       </button>
       <button class="btn btn-primary cloud-btn" onclick="alert('feature still in development')">
@@ -24,73 +31,42 @@
       </button>
     </nav>
 
-    <section class="badge-wrapper">
-      <div class="badge">
-        <img src="./img/badge.webp" alt="">
+    <section class="badge-wrapper flex-col">
+      <div class="badge-stat-wrapper">
+        <div class="badge">
+          <img src="./img/badge4.webp" alt="">
+        </div>
+        <div class="steak-pie flex-between">
+          <canvas id="attendence"></canvas>
+        </div>
       </div>
       <div class="user-info">
         <h1>Rajan Kumar Sahu</h1>
-        <p class="grey">Steak Points : 4</p>
+        <p class="grey">Steak Points : <span>0</span></p>
       </div>
     </section>
+
 
     <section class="ui-box scedule">
-      <div class="toggle flex-between">
-        <h1> Wednes Day </h1>
-        <button class="btn" onclick="saveData(this)">Save</button>
-      </div>
-
       <div class="target">
-        <h2 class="exname grey">  </h2>
+        <div class="flex-between">
+          <h2 class="exname grey">  </h2>
+          <input type="checkbox" name="target1" onclick="updateTarget1(this)">
+        </div>
         <ul class="list">
-
         </ul>
 
-        <h2 class="exname grey">  </h2>
+        <div class="flex-between">
+          <h2 class="exname grey">  </h2>
+          <input type="checkbox" name="target1" onclick="updateTarget2(this)">
+        </div>
         <ul class="list">
-
         </ul>
       </div>
-
-      <div class="daily-inputs">
-        <div id="weight" class="flex-col">
-          <img src="./img/weight.png" alt="">
-          <input type="number" placeholder="92kg" oninput="dailyInputChange()">
-        </div>
-        <div id="time" class="flex-col">
-          <img src="./img/time.png" alt="">
-          <input type="number" placeholder="1hr" oninput="dailyInputChange()">
-        </div>
-      </div>
-
-    </section>
-
-    <section class="charts">
-      <div class="ui-box steak-pie">
-        <canvas id="attendence"></canvas>
-      </div>
-      <div class="select-wrapper flex-col ui-box">
-        <h4 class="grey">Show Stats of</h4>
-        <select name="" id="stats-option" class="btn" onchange="showStats(this)">
-          <option value="all">All Time</option>
-          <option value="year">Last 360 days</option>
-          <option value="month">Last 30 days</option>
-          <option value="week" selected>Last 7 days</option>
-        </select>
-      </div>
-    </section>
-
-    <section class="ui-box flex-col">
-      <h2>Track Weight</h2>
-      <canvas id="track-weight"></canvas>
-    </section>
-
-    <section class="ui-box flex-col">
-      <h2>Track Time</h2>
-      <canvas id="track-time"></canvas>
     </section>
 
   </main>
 </body>
+<script src="./js/common.js" async defer></script>
 <script src="./js/dom.js" async defer></script>
 </html>

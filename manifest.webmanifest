@@ -1,6 +1,6 @@
 {
-  "short_name": "Itrainer",
-  "name": "Itrainer: your mobile gym trainer",
+  "short_name": "Workout360",
+  "name": " ",
   "icons": [
     {
       "src": "./img/logo192.png",
@@ -27,19 +27,12 @@
   "theme_color": "white",
   "shortcuts": [
     {
-      "name": "track your weight",
-      "short_name": "track weight",
-      "description": "track your weight from itrainer",
-      "url": "/#track-weight",
-      "icons": [{ "src": "./img/logo192.png", "sizes": "192x192" }]
-    },
-    {
-      "name": "track your time",
-      "short_name": "track gym",
-      "description": "track time you spen in the gym",
-      "url": "/#track-time",
+      "name": "track your status",
+      "short_name": "stats",
+      "description": "track your weight and other things from itrainer",
+      "url": "/html/stats.html",
       "icons": [{ "src": "./img/logo192.png", "sizes": "192x192" }]
     }
   ],
-  "description": "itracker the mobile trainer, your daily gym tracker and sceduler"
+  "description": "itrainer the mobile trainer, your daily gym tracker and sceduler"
 }

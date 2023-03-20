@@ -1,39 +1,5 @@
 @import url(./common.css);
 
-body{
-  overflow-x: hidden;
-}
-main{
-	padding:var(--max-space);
-	background-color: white;
-	display: flex;
-	flex-direction: column;
-	gap: var(--max-space);
-	max-width: 900px;
-	margin: auto;
-}
-nav{
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-}
-nav button{
-	background-color: transparent;
-	height: 40px;
-	border: none;
-}
-nav button img {
-	height: inherit;
-}
-nav .cloud-btn{
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	gap: var(--min-space);
-}
-nav .cloud-btn img{
-	height: 20px;
-}
 .badge-wrapper{
 	display: flex;
 	justify-content: center;
@@ -41,24 +7,31 @@ nav .cloud-btn img{
 	gap: var(--min-space);
 	margin: var(--min-space) 0;
 }
+.badge-wrapper .badge-stat-wrapper{
+	position: relative;
+}
 .badge-wrapper .badge{
 	height: 100px;
 	aspect-ratio: 1/1;
 	overflow: hidden;
+	position: absolute;
+	top: 25px;
+	left: 25px;
 }
 .badge-wrapper .badge img{
 	height: inherit;
 }
+.badge-wrapper #attendence{
+	width: 150px;
+	height: 150px;
+}
+.badge-wrapper #attendence:hover{
+	z-index: 2;
+}
+.badge-wrapper .user-info{
+	text-align: center;
+}
 
-.ui-box{
-	padding: var(--max-space);
-	border-radius: 1em;
-	background-color: white;
-	box-shadow: 0 0px 20px rgba(0, 0, 250, 0.1);
-}
-.ui-box .toggle{
-	width: 100%;
-}
 .scedule h1, h2{
 	text-transform: capitalize;
 }
@@ -70,11 +43,11 @@ nav .cloud-btn img{
 	align-items: center;
 	gap: var(--max-space);
 }
-.scedule .target{gap: var(--max-space);}
 .scedule .target{
 	width: 100%;
-	padding-top: 15px;
 	overflow: hidden;
+	gap: var(--max-space);
+	padding-bottom: 15px;	
 }
 .scedule .target .list{
 	width: 100%;
@@ -82,11 +55,11 @@ nav .cloud-btn img{
 .scedule .target .list li{
 	border-radius: 10px;
 /*	background-color: white;*/
-	background-color: rgb(245, 245, 250);
+	background-color: rgb(247, 250, 255);
 	padding: 10px;
 }
 .scedule .target .list li:nth-child(odd){
-	background-color: rgb(225, 225, 250);
+	background-color: rgb(227, 238, 255);
 }
 .scedule .target .list .weights{
 	display: flex;
@@ -100,32 +73,10 @@ nav .cloud-btn img{
 	width: 30px;
 	padding: 5px;
 }
-.scedule .daily-inputs{
-	display: flex;
-	gap: var(--max-space);
-	margin-top: var(--max-space);
-}
-.scedule .daily-inputs img{
-	height: 60px;
-}
-.scedule .daily-inputs input{
-	width: 60px;
-}
-.charts{
-	display: grid;
-	grid-template-columns: 1fr 1.5fr;
-	gap: var(--max-space);
-}
-.charts #attendence{
-  max-width: 100px;
-}
-.charts .select-wrapper{
-	justify-content: center;
-	align-items: center;
-}
 
 @media only screen and (max-width: 400px) {
+
   .charts #attendence{
-    max-width: fit-content;
+    max-height: 100px;
   }
 }

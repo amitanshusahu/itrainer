@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="white">
+  <meta name="color-scheme" content="light">
+  <title>stats</title>
+  <link rel="stylesheet" href="../css/stats.css">
+  <link rel="apple-touch-icon" href="./img/logo192.png">
+  <script src="../js/chart.js"></script>
+</head>
+<body>
+	<main>
+    <div class="modal">
+      <menu class="ui-box">
+        <div class="flex-col">
+          <a href="../index.html"> home </a>
+          <button class="btn" onclick="localStorage.clear()">clear 
+        </div>
+      </menu>
+    </div>
+
+	    <nav>
+	      <button onclick="openMenu()">
+	        <img src="../img/menu.png" alt="">
+	      </button>
+	      <button class="btn btn-primary cloud-btn" onclick="alert('feature still in development')">
+	        <img src="../img/cloud.png" alt="">
+	        Sync
+	      </button>
+	    </nav>
+
+	    <section class="charts ui-box" id="sec1">
+	      <div class="select-wrapper flex-col">
+	        <h4 class="grey">Show Stats of</h4>
+	        <select name="" id="stats-option" class="btn" onchange="showStats(this)">
+	          <option value="all">All Time</option>
+	          <option value="year">Last 360 days</option>
+	          <option value="month">Last 30 days</option>
+	          <option value="week" selected>Last 7 days</option>
+	        </select>
+	      </div>
+	    </section>
+
+	    <section class="ui-box flex-col" id="sec2">
+	      <div class="flex-between">
+	        <h2>Track Weight</h2>
+	        <input type="number" 
+	        placeholder="92kg" oninput="saveData()"
+	        id="weight-input" style="max-width: 70px;">
+	      </div>
+	      <canvas id="track-weight"></canvas>
+	    </section>
+
+	</main>
+  <script src="../js/common.js"></script>
+  <script src="../js/stats-script.js"></script>
+</body>
+</html>
