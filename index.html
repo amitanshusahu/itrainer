@@ -18,14 +18,13 @@
     <div class="modal">
       <menu class="ui-box flex-col">
           <a href="./html/stats.html"> tracker</a>
-        <button class="btn" onclick="localStorage.clear()">clear local</button>
       </menu>
     </div>
     <nav>
       <button onclick="openMenu()">
         <img src="./img/menu.png" alt="">
       </button>
-      <button class="btn btn-primary cloud-btn" onclick="alert('feature still in development')">
+      <button class="btn btn-primary cloud-btn">
         <img src="./img/cloud.png" alt="">
         Sync
       </button>
@@ -42,7 +41,8 @@
       </div>
       <div class="user-info">
         <h1>Rajan Kumar Sahu</h1>
-        <p class="grey">Steak Points : <span>0</span></p>
+        <p class="grey" id="dicipline">Dicipline Points : <span>0</span></p>
+        <p class="grey" id="steak">Steak Points : <span>0</span></p>
       </div>
     </section>
 
@@ -51,14 +51,14 @@
       <div class="target">
         <div class="flex-between">
           <h2 class="exname grey">  </h2>
-          <input type="checkbox" name="target1" onclick="updateTarget1(this)">
+          <input type="checkbox" id="target1-btn" onclick="updateTarget1(this)">
         </div>
         <ul class="list">
         </ul>
 
         <div class="flex-between">
           <h2 class="exname grey">  </h2>
-          <input type="checkbox" name="target1" onclick="updateTarget2(this)">
+          <input type="checkbox" id="target2-btn" onclick="updateTarget2(this)">
         </div>
         <ul class="list">
         </ul>
@@ -67,6 +67,6 @@
 
   </main>
 </body>
-<script src="./js/common.js" async defer></script>
 <script src="./js/dom.js" async defer></script>
+<script src="./js/common.js" async defer></script>
 </html>

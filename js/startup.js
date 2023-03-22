@@ -62,7 +62,7 @@ const scedule = {
 			["leg extention (back)", "leg extention (front)"],
 			"calf muscle (smith)",
 			"waist"],
-		abs: ["paraller (stright)", "parallel bar (bend)", "parallel bar (hold)","bench (leg)", "bench (body)", "oblique"]
+		abs: ["parallel bar (stright)", "parallel bar (bend)", "parallel bar (hold)","bench (leg)", "bench (body)", "oblique"]
 	},
 };
 
@@ -75,9 +75,27 @@ let todaysExSchedule = [];
 
 
 const preOnline = localStorage.getItem("preOnline");
-let preWeek = getWeekName(getWeekNo() - 1);
+let preDay = getWeekName(getWeekNo() - 1);
 const today = getTodaysDay();
 let todaysExObj;
+
+let steak = JSON.parse(localStorage.getItem('steak')) || {
+	shouldIncrease: false,
+	preOnline: today,
+	count: 0,
+};
+let isPresent = JSON.parse(localStorage.getItem('isPresent')) || {
+	monday : false,
+	tuesday: false,
+	wednesday: false,
+	thursday: false,
+	friday: false,
+	saturday: false,
+}
+let diciplinePoints = JSON.parse(localStorage.getItem('diciplinePoints')) || {
+	isWeekCompleted : true,
+	count: 0
+}
 
 
 
@@ -92,8 +110,10 @@ else{
   todaysExObj = scedule[today];
 }
 
-if(preOnline == preWeek){
-	localStorage.setItem("saved", "false");
+
+localStorage.setItem('steak', JSON.stringify(steak));
+if(steak.preOnline == preDay){
+	steak.shouldIncrease = true;
 }
 
 //> run showTodaysExercise once

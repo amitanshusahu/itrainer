@@ -8,5 +8,12 @@ window.onclick = function(event) {
 
 function openMenu(){
   let modal = document.querySelector(".modal");
-  modal.style = "scale:1;"
+  modal.style.display = "flex";
+}
+
+let isOnline = navigator.onLine;
+if(isOnline == false){
+  let cloudBtn = document.querySelector(".cloud-btn");
+  cloudBtn.classList.toggle("bg-red");
+  cloudBtn.innerText = "Offline";
 }

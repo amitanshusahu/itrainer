@@ -115,6 +115,9 @@ button, img, a{
 .grey{
 	color: grey;
 }
+.bg-red{
+	background-color: red !important;
+}
 .flex-col{
 	display: flex;
 	flex-direction: column;
@@ -127,8 +130,7 @@ button, img, a{
 	box-shadow: 0 0px 20px rgba(0, 0, 250, 0.1);
 }
 .modal{
-	scale: 0;
-	display: flex;
+	display: none;
 	justify-content: center;
 	align-items: center;
   position: fixed; /* Stay in place */
