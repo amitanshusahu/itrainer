@@ -231,3 +231,31 @@ function createChart(ctx, type, data, options){
 
   	new Chart(ctx, config);
 }
+
+// ------ CREATING A CHART -------
+
+let targetStatsCanvas = document.getElementById("target-stats");
+
+let {back, bicep, tricep, chest, shoulder, trap, leg, abs} = JSON.parse(localStorage.getItem('targetStats'));;
+
+const targetData = {
+  labels: ['Back', 'Bicep', 'tricep', 'chest', 'shoulder', 'trap', 'leg', 'abs'],
+  datasets: [{
+    data: [back, bicep, tricep, chest, shoulder, trap, leg, abs],
+    backgroundColor: ['#e3eeff', '#f8e3ff', '#e3ffff', '#ffe3e3', '#e3ffeb', '#fff1e3', '#fffee3', '#d4d4ff'],
+  }],
+};
+
+// const targetOptions = {
+//     plugins: {
+//         legend: {
+//             display: false,
+//         }
+//     }
+// }
+
+createChart(
+targetStatsCanvas,
+"pie",
+targetData,
+)
